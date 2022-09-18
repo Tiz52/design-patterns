@@ -1,0 +1,30 @@
+"use strict";
+exports.__esModule = true;
+var folder_component_1 = require("./composite/folder-component");
+var file_component_1 = require("./leaf/file-component");
+function clientCode() {
+    var mainFolder = new folder_component_1.FolderComponent("Year2022");
+    var subFolder1 = new folder_component_1.FolderComponent("Jun2022");
+    var subFolder2 = new folder_component_1.FolderComponent("Jul2022");
+    mainFolder.addComponent(subFolder1);
+    mainFolder.addComponent(subFolder2);
+    var folder1File1 = new file_component_1.FileComponent("Jun1DataFile.txt", 1000);
+    var folder1File2 = new file_component_1.FileComponent("Jun2DataFile.txt", 1500);
+    var folder1File3 = new file_component_1.FileComponent("Jun3DataFile.txt", 2000);
+    subFolder1.addComponent(folder1File1);
+    subFolder1.addComponent(folder1File2);
+    subFolder1.addComponent(folder1File3);
+    var folder2File1 = new file_component_1.FileComponent("Jul1DataFile.txt", 500);
+    var folder2File2 = new file_component_1.FileComponent("Jul2DataFile.txt", 500);
+    subFolder2.addComponent(folder2File1);
+    subFolder2.addComponent(folder2File2);
+    console.log("Main Folder: " + mainFolder.getName() + " ** Size=" + mainFolder.getComponentSize() + "Kb");
+    console.log(" SubFolder1: " + subFolder1.getName() + " ** Size=" + subFolder1.getComponentSize() + "Kb");
+    console.log("   File1 in SubFolder1: " + folder1File1.getName() + " ** Size=" + folder1File1.getComponentSize() + "Kb");
+    console.log("   File2 in SubFolder1: " + folder1File2.getName() + " ** Size=" + folder1File2.getComponentSize() + "Kb");
+    console.log("   File3 in SubFolder1: " + folder1File3.getName() + " ** Size=" + folder1File3.getComponentSize() + "Kb");
+    console.log(" SubFolder2: " + subFolder2.getName() + " ** Size=" + subFolder2.getComponentSize() + "Kb");
+    console.log("   File1 in SubFolder2: " + folder2File1.getName() + " ** Size=" + folder2File1.getComponentSize() + "Kb");
+    console.log("   File2 in SubFolder2: " + folder2File2.getName() + " ** Size=" + folder2File2.getComponentSize() + "Kb");
+}
+clientCode();
